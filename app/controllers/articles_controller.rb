@@ -17,6 +17,13 @@ class ArticlesController < ApplicationController
  
 
 #####################################
+
+def indexweb1
+  @articles = Article.all
+  render :json =>  @articles 
+  render json: { article: @articles, token: @token }, status: :created
+end
+#############################################3
   def show
     @article = Article.find(params[:id])
  

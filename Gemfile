@@ -73,3 +73,7 @@ gem "active_model_serializers", "~> 0.8.0"
 gem 'cancancan'
 gem 'jwt'
 
+
+gem 'bcrypt', '~> 3.1.7'
+gem 'rack-cors'
+gem 'bcrypt-ruby'
