@@ -1,7 +1,6 @@
 class ArticlesController < ApplicationController
 
-
-
+  load_and_authorize_resource
 
   ####################
   def destroy
@@ -13,12 +12,15 @@ class ArticlesController < ApplicationController
 ######################################
   def index
     @articles = Article.all
+  #  render :json => @articles
   end
  
 
 #####################################
   def show
     @article = Article.find(params[:id])
+ 
+    #render :json => @article
   end
  
 
@@ -34,9 +36,8 @@ class ArticlesController < ApplicationController
 #####################################
   def create
     @article = Article.new(article_params)
+    @article.user_id=current_user.id
 
-   
-    
     if @article.save
       redirect_to @article
     else 

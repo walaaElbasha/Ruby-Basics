@@ -2,16 +2,23 @@
 <%= render 'navbar' %>
 
 
+<br><br>
+<button class="btn btn-info" >
 
-<%= link_to 'New article', new_article_path %>
+
+<%= link_to 'New article', new_article_path %> 
+</button>
 
 
 <h1>Listing articles</h1>
  
-<table>
+<table class="table table-striped table-dark" style="width:75%">
   <tr>
     <th>Title</th>
     <th>Text</th>
+  
+    <th>Actions</th>
+  
   </tr>
  
   <% @articles.each do |article| %>
@@ -19,14 +26,23 @@
       <td><%= article.title %></td>
       <td><%= article.text %></td>
 
-      <td><%= link_to 'Show', article_path(article) %></td>
 
-      <td><%= link_to 'Edit', edit_article_path(article) %></td>
-    <td><%= link_to 'Destroy', article_path(article),
+      <td><%= link_to 'Show', article_path(article) %>
+
+
+<% if can? :edit, @post %>
+      <%= link_to 'Edit', edit_article_path(article) %>
+  <%end%>
+
+<% if can? :destroy, @post %>
+    <%= link_to 'Destroy', article_path(article),
               method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+              data: { confirm: 'Are you sure?' } %>
+<%end%>
+              
+              </td>
     </tr>
 
-    
+  
   <% end %>
 </table>

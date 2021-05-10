@@ -62,3 +62,14 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
+
+gem 'bootstrap', '~> 5.0.0'
+
+gem 'jquery-rails'
+
+
+gem "active_model_serializers", "~> 0.8.0"
+
+gem 'cancancan'
+gem 'jwt'
+
